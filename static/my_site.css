@@ -1,0 +1,56 @@
+.menu {
+  overflow: hidden; /* Отображается только область внутри элемента, остальное будет скрыто */
+  background-color: #2a5885;
+  top: 0;
+  width: 100%;
+  display: flex; /* flex-контейнер, расположение элементов горизонтально */
+  flex-wrap: wrap; /* расположение в несколько линий */
+  justify-content: space-around; /* равномерно распределяет все элементы по ширине flex-блока */
+}
+.menu a {
+  float: left;
+  display: block;        /* элемент показывается как блочный */
+  color: white;
+  text-align: center;    /* выравнивание текста по центру*/
+  padding: 14px 16px;
+  text-decoration: none; /* отключение подчеркивания текста и других эффектов */
+  font-size: 19px;       /* размер шрифта */
+}
+.menu a:hover {         /* Смена цвета пункта меню при наведении*/
+  background: #369;
+  color: white;
+}
+body {
+  max-width: 1400px; /* максимальная длинная элемента */
+  margin: 0 auto; /* величина отступа от каждого края элемента до родительского элемента */
+  background-color: white;
+  font-size: 17px;
+  font-family: Geneva, Arial, Helvetica, sans-serif; /* список шрифтов */
+}
+.ind_h1 {
+  text-align: center;
+  font-size: 22px;
+}
+.ind_ph{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.ind_cont{
+  max-width: 75%;
+}
+.form1{
+  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* выравнивание элементов по центру */
+}
+.form1_t{
+  color: black;
+  font-size: 17px;
+}
+footer{
+  background-color: #2a5885;
+  text-align: center;
+  color: white;
+}

@@ -1,0 +1,64 @@
+.navbar {
+  overflow: hidden; /* Отображается только область внутри элемента, остальное будет скрыто */
+  background-color: #2a5885;
+  top: 0;
+  width: 100%;
+  display: flex; /* flex-контейнер, расположение элементов горизонтально */
+  flex-wrap: wrap; /* расположение в несколько линий */
+  justify-content: space-around; /* равномерно распределяет все элементы по ширине flex-блока */
+}
+
+.navbar a {
+  float: left;
+  display: block; /* элемент показывается как блочный */
+  color: #f2f2f2;
+  text-align: center; /* выравнивание текста по центру*/
+  padding: 14px 16px;
+  text-decoration: none; /* отключение подчеркивания текста и других эффектов */
+  font-size: 19px; /* размер шрифта */
+}
+
+.navbar a:hover {
+  background: #ddd;
+  color: black;
+}
+body {
+    max-width: 1400px; /* максимальная длинная элемента */
+    margin: 0 auto; /* величина отступа от каждого края элемента до родительского элемента */
+    background-color: white;
+    font-size: 17px;
+    font-family: Geneva, Arial, Helvetica, sans-serif; /* список шрифтов */
+}
+.f1{
+    text-align: center;
+    background-color: #333;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* выраснивание элементов по центру */
+
+}
+.im{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+footer{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;}
+.im__h1 {
+    text-align: center;
+    font-size: 22px;
+}
+.im_content{
+    max-width: 75%;
+}
+.text{
+color: #f2f2f2;
+font-size: 17px;
+
+}
+footer{
+background-color: #333;
+padding: 0
+}

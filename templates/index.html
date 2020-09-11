@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Site</title>
+    <link rel="stylesheet" href="static/my_site.css">
+</head>
+
+<body>
+<nav class = 'menu'>
+    <a href="index.html">Главная</a>
+    <a>Мое веб-приложение на flask</a>
+    <a href="https://vk.com/id19697067">Контакты </a>
+    <a>О разработчике</a>
+</nav>
+
+<section>
+  <div class = 'ind_h1'>
+    <h1>Здравствуйте. Я начинающий веб-разработчик.</h1>
+  </div>
+  <div class="ind_ph">
+    <img src ='../static/images/photo.png' alt="Что-то пошло не так :(" width="500" height="461">
+  <div class="ind_cont">
+    <p>Меня зовут Роман, мне 37 лет. Работаю системным администратором. До прихода на данный курс самостоятельно изучал PhP, но далеко не продвинулся.</p>
+  </div>
+  </div>
+  <div class="ind_h1">
+    <p> Здесь вы можете задать мне вопрос! Обязательно укажите имя и адрес почты, чтобы я смог дать ответ!</p>
+  </div>
+</section>
+
+<section class ='form1'>
+<form action='/answer'autocomplete = off method='POST'>
+  <fieldset class = 'form1_t'>
+    <legend>Задайте ваш вопрос</legend>
+    <p><label for="name">Имя <em>* </em></label><input type="text" id="name" name="name"></p>
+    <p><label for="email">E-mail </label><input type="email" id="email" name = "email"></p>
+    <textarea name="message"cols="40" rows="5" > </textarea>
+  </fieldset>
+<p><input type="submit" value="Отправить"></p>
+</form>
+</section>
+
+<footer>
+  <p>2020</p>
+</footer>
+
+</body>
+</html>
