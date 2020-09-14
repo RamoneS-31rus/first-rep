@@ -2,17 +2,24 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Site</title>
+    <title>Главная</title>
     <link rel="stylesheet" href="static/my_site.css">
 </head>
 
 <body>
 <nav class = 'menu'>
     <a href="index.html">Главная</a>
-    <a>Мое веб-приложение на flask</a>
+    <a href="flask.html">Мое веб-приложение на flask</a>
     <a href="https://vk.com/id19697067">Контакты </a>
     <a>О разработчике</a>
 </nav>
+
+<section>
+   <form action='/answer3'autocomplete =off method='POST'>
+      <p><label for="name1">Введите имя <em> </em></label><input type="text" id="name1" name="name1"></p>
+      <p><input type="submit" value="Поиск"></p>
+   </form>
+</section>
 
 <section>
   <div class = 'ind_h1'>
