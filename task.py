@@ -1,82 +1,56 @@
-# Задания 1. Найти площадь и периметр прямоугольного треугольника по двум заданным катетам.
-# Решение:
-import math
+print("*" * 10, ''' Игра "Крестики-нолики". ''', "*" * 10)
 
-AB = input("Длина первого катета: ")
-AC = input("Длина второго катета: ")
+board = list(range(1,10))
 
-AB = float(AB)
-AC = float(AC)
+def draw_board(board):
+   print("-" * 13)
+   for i in range(3):
+      print("|", board[0+i*3], "|", board[1+i*3], "|", board[2+i*3], "|")
+      print("-" * 13)
 
-BC = math.sqrt(AB**2 + AC**2)
+def take_input(player_token):
+   valid = False
+   while not valid:
+      player_answer = input("Куда поставим " + player_token + "? ")
+      try:
+         player_answer = int(player_answer)
+      except:
+         print("Некорректный ввод. Вы уверены, что ввели число?")
+         continue
+      if player_answer >= 1 and player_answer <= 9:
+         if(str(board[player_answer-1]) not in "XO"):
+            board[player_answer-1] = player_token
+            valid = True
+         else:
+            print("Эта клетка уже занята!")
+      else:
+        print("Некорректный ввод. Введите число от 1 до 9.")
 
-S = (AB * AC) / 2
-P = AB + AC + BC
+def check_win(board):
+   win_coord = ((0,1,2), (3,4,5), (6,7,8), (0,3,6), (1,4,7), (2,5,8), (0,4,8), (2,4,6))
+   for each in win_coord:
+       if board[each[0]] == board[each[1]] == board[each[2]]:
+          return board[each[0]]
+   return False
 
-print("Площадь треугольника: %.2f" % S)
-print("Периметр треугольника: %.2f" % P)
-
-# Задание 2. Пользователь вводит трехзначное число. Программа должна сложить цифры, из которых состоит это число.
-#            Например, если было введено 345, программа должна вывести на экран число 12, так как 3 + 4 + 5 = 12.
-# Вариант решения 1:
-n = input("Введите трехзначное число: ")
-n = int(n)
-
-d1 = n % 10
-n = n // 10
-d2 = n % 10
-n = n // 10
-
-print("Сумма цифр числа:", n + d1 + d2)
-#Вариант решения 2:
-n = input("Введите трехзначное число: ")
-n = int(n)
-
-d1 = n % 10
-d2 = n % 100 // 10
-d3 = n // 100
-
-print("Сумма цифр числа:", d1 + d2 + d3)
-
-# Задание 3. Пользователь вводит любую последовательность чисел.
-#            Программа должна отсортировать введенные данные пузырьковым методом.
-# Решение:
-print("Введите числа через пробел. По окончании ввода нажмите Enter")
-
-a = list(map(int, input().split()))
-n = len(a)
-
-def sort(a_sort):
-    t = len(a_sort) - 1 # пока t в диапазоне количества символов в массиве
-    for i in range (0, t):  # пока i в диапазоне от 0 до максимального размера массива
-        for x in range (0, t):
-            if a_sort[x] > a_sort[x+1]:
-                a_sort[x], a_sort[x+1] = a_sort[x+1], a_sort[x]
-    return a_sort
-a_sort = a
-sort(a_sort)
-
-print(' '.join(map(str, a_sort)))
-
-# Задание 4. Дан отсортированный список, пользователь вводит любое число.
-#            Необходимо проверить имеется вводимое число в списке или нет. Реализовать задачу бинарным поиском.
-# Решение:
-A = [1,3,7,9,14,16,17,19,20,21,25,30,33,35,40,42,51,56,63,78]
-print("Введите число:")
-K = int(input())
-
-mid = len(A) // 2
-low = 0
-high = len(A) - 1
-
-while A[mid] != K and low <= high:
-    if K > A[mid]:
-        low = mid + 1
-    else:
-        high = mid - 1
-    mid = (low + high) // 2
-
-if low > high:
-    print("Данное число в списке не найдено.")
-else:
-    print("Позиция искомого числа в списке:", mid)
+def main(board):
+    counter = 0
+    win = False
+    while not win:
+        draw_board(board)
+        if counter % 2 == 0:
+           take_input("X")
+        else:
+           take_input("O")
+        counter += 1
+        if counter > 4:
+           tmp = check_win(board)
+           if tmp:
+              print("*"*3, tmp, "выиграл!","*"*3)
+              win = True
+              break
+        if counter == 9:
+            print("*"*3, "Ничья!", "*"*3)
+            break
+    draw_board(board)
+main(board)
