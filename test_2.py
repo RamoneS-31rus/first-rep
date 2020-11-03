@@ -1,19 +1,40 @@
-print("Введите числа через пробел. По окончании ввода нажмите Enter")
-a = input().split()
+import os
+from random import randrange
+from random import choice
 
-n = len(a)
+class FieldPart(object):
+    main = 'map'
+    radar = 'radar'
+    weight = 'weight'
 
-print(a)
-print(n)
+class Color:
+    white = '\033[0;37m'
+    reset = '\033[0m'
+    blue = '\033[0;34m'
+    yellow = '\033[0;33m'
+    red = '\033[0;31m'
+    miss = '\033[0;37m'
 
-def sort(a_sort):
-    for num in range(len(a_sort)-1,0,-1):
-        for i in range(num):
-            if a_sort[i]>a_sort[i+1]:
-                temp = a_sort[i]
-                a_sort[i] = a_sort[i+1]
-                a_sort[i+1] = temp
+def set_color(text, color):
+    return color + text + Color.reset
 
-a_sort = a
-sort(a_sort)
-print(a_sort)
+class Cell(object):
+    empty_cell = set_color('□', Color.white)
+    ship_cell = set_color('■', Color.blue)
+    destroyed_ship = set_color('✖', Color.red)
+    damaged_ship = set_color('●', Color.yellow)
+    miss_cell = set_color('☉', Color.miss)
+#****************************************************************************************************************
+
+class Triangle:
+    def __init__(self, a, b, c):
+        self.a = a
+        self.b = b
+        self.c = c
+
+    def __str__(self):
+        return f'Triangle ({self.a}, {self.b}, {self.c})'
+
+
+T = Triangle(5, 10, 15)
+print(T)

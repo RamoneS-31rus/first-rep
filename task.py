@@ -1,11 +1,10 @@
-class Triangle:
-    def __init__(self, a, b, c):
-        self.a = a
-        self.b = b
-        self.c = c
+class Rectangle():
+    def __init__(self, l, w):
+        self.length = l
+        self.width = w
 
-    def __str__(self):
-        return f'Triangle ({self.a}, {self.b}, {self.c})'
+    def area(self):
+        return self.length * self.width
 
-T = Triangle(5, 10, 15)
-print(T)
+A = Rectangle(5, 10)
+print(A.area())
